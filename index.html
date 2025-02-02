@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap&family=Montserrat:ital,wght@0,100..900;1,100..900');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Montserrat", cursive;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100svh;
+            background-color: rgb(58, 11, 58);
+        }
+
+        .profile-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 23px rgba(220, 173, 220, 0.6);
+            text-align: center;
+            width: 350px;
+            transition: all ease-in-out 0.35s;
+        }
+
+        .profile-card:hover {
+          box-shadow: 0 0 40px rgba(220, 173, 220, 0.5);
+        }
+
+        .profile-picture {
+            width: 40%;
+            /* aspect-ratio: 3/3; */
+            /* height: 100px; */
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #3a0b3a;
+        }
+
+        .name {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .job-title {
+            color: #555;
+            font-size: 1rem;
+        }
+
+        .job-title::after {
+          content: "";
+          position: absolute;
+          bottom: -5px;
+          height: 4px;
+          width: 100%;
+          left: 0;
+          background-color: #3a0b3a;
+          transition: all ease-in-out 0.35s;
+          transform: scaleX(0);
+        }
+
+        .bio {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .location, .email, .social-links, .utc-time {
+            font-size: 0.9rem;
+            margin: 5px 0;
+        }
+
+        .social-links a {
+            margin: 0 5px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 1.2rem;
+            transition: all ease-in-out 0.35s;
+        }
+
+        .social-links a:hover {
+          opacity: 0.75;
+        }
+
+        @media (max-width: 400px) {
+            .profile-card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img src="adewaleadebayo.png" alt="Profile Picture" class="profile-picture" data-testid="profilePicture">
+        <div class="name" data-testid="fullName">Adebayo Adewale Ishaq</div>
+        <div class="job-title" data-testid="jobTitle">Frontend Developer</div>
+        <p class="bio" data-testid="shortBio">
+            Passionate about building responsive and user-friendly web applications. Always learning and improving.
+        </p>
+        <div class="location" data-testid="currentLocation">Ilorin, Nigeria</div>
+        <div class="email" data-testid="emailAddress">wabalonline01@gmail.com</div>
+        <div class="social-links" data-testid="socialLinks">
+            <a href="https://github.com/WhalesDbayor" target="_blank"><img src="github-logo-24.png" alt=""></a>
+            <a href="https://linkedin.com/in/johndoe" target="_blank"><img src="linkedin-square-logo-24.png" alt=""></a>
+            <a href="https://twitter.com/johndoe" target="_blank"><img src="facebook-circle-logo-24.png" alt=""></a>
+        </div>
+        <div class="utc-time" data-testid="currentTimeUTC">UTC Time: <span id="utcTime"></span></div>
+    </div>
+
+    <script>
+        function updateUTCTime() {
+            const now = new Date();
+            document.getElementById("utcTime").textContent = now.toISOString();
+        }
+
+        updateUTCTime();
+        setInterval(updateUTCTime, 1000);
+    </script>
+
+</body>
+</html>
