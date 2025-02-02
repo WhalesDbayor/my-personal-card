@@ -52,11 +52,20 @@
         }
 
         .job-title {
-            color: #555;
-            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .job-title::after {
+        .job-title h3 {
+            color: #555;
+            font-size: 1rem;
+            /* max-width: max-content; */
+            position: relative;
+            cursor: pointer;
+        }
+
+        .job-title h3::after {
           content: "";
           position: absolute;
           bottom: -5px;
@@ -66,6 +75,10 @@
           background-color: #3a0b3a;
           transition: all ease-in-out 0.35s;
           transform: scaleX(0);
+        }
+
+        .job-title h3:hover::after {
+            transform: scaleX(1);
         }
 
         .bio {
@@ -103,7 +116,7 @@
     <div class="profile-card">
         <img src="adewaleadebayo.png" alt="Profile Picture" class="profile-picture" data-testid="profilePicture">
         <div class="name" data-testid="fullName">Adebayo Adewale Ishaq</div>
-        <div class="job-title" data-testid="jobTitle">Frontend Developer</div>
+        <div class="job-title" data-testid="jobTitle"><h3>Frontend Developer</h3></div>
         <p class="bio" data-testid="shortBio">
             Passionate about building responsive and user-friendly web applications. Always learning and improving.
         </p>
@@ -111,8 +124,8 @@
         <div class="email" data-testid="emailAddress">wabalonline01@gmail.com</div>
         <div class="social-links" data-testid="socialLinks">
             <a href="https://github.com/WhalesDbayor" target="_blank"><img src="github-logo-24.png" alt=""></a>
-            <a href="https://linkedin.com/in/johndoe" target="_blank"><img src="linkedin-square-logo-24.png" alt=""></a>
-            <a href="https://twitter.com/johndoe" target="_blank"><img src="facebook-circle-logo-24.png" alt=""></a>
+            <a href="https://www.linkedin.com/in/adewale-adebayo-ishaq/" target="_blank"><img src="linkedin-square-logo-24.png" alt=""></a>
+            <a href="https://www.facebook.com/dbayor.ishaq" target="_blank"><img src="facebook-circle-logo-24.png" alt=""></a>
         </div>
         <div class="utc-time" data-testid="currentTimeUTC">UTC Time: <span id="utcTime"></span></div>
     </div>
